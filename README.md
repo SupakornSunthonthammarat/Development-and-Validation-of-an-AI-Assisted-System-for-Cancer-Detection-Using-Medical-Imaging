@@ -1,6 +1,6 @@
-# OncoVision AI
+# Development-and-Validation-of-an-AI-Assisted-System-for-Cancer-Detection-Using-Medical-Imaging
 
-OncoVision AI is a production-oriented starter for an AI-assisted medical imaging research platform. It supports image upload, modular inference, visual overlay generation, report download, and a disabled-by-default assistant surface.
+AI-Assisted-System-for-Cancer-Detection- is a production-oriented starter for an AI-assisted medical imaging research platform. It supports image upload, modular inference, visual overlay generation, report download, and a disabled-by-default assistant surface.
 
 Important: this app is for research and education only. It is not a medical diagnosis tool, clinical decision support system, or treatment recommendation system.
 
