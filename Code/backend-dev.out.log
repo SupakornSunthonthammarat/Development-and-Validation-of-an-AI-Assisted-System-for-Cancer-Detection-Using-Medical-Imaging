@@ -1,0 +1,109 @@
+INFO:     127.0.0.1:52850 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50822 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50445 - "GET /storage/uploads/ddd81ae5-5d46-45d1-a4dd-2f08ccf4a565.png HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:55100 - "GET /storage/outputs/ddd81ae5-5d46-45d1-a4dd-2f08ccf4a565-mask-0.png HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:51286 - "GET /storage/outputs/ddd81ae5-5d46-45d1-a4dd-2f08ccf4a565-overlay.png HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:49218 - "GET /storage/outputs/ddd81ae5-5d46-45d1-a4dd-2f08ccf4a565-annotated.png HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:49696 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57878 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57523 - "OPTIONS /api/upload/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57523 - "POST /api/upload/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57523 - "OPTIONS /api/predict/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57523 - "POST /api/predict/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57523 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60773 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49393 - "POST /api/upload/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49393 - "POST /api/predict/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49393 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55123 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52091 - "GET /storage/uploads/8f869e9b-064d-47ad-84f5-87a2c1f1c410.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55815 - "GET /storage/outputs/8f869e9b-064d-47ad-84f5-87a2c1f1c410-overlay.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62072 - "GET /storage/outputs/8f869e9b-064d-47ad-84f5-87a2c1f1c410-annotated.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63691 - "GET /storage/outputs/8f869e9b-064d-47ad-84f5-87a2c1f1c410-mask-0.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59568 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62836 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63046 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55661 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57593 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57238 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63861 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50282 - "OPTIONS /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54162 - "OPTIONS /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54162 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50282 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50475 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63627 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50361 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53091 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49669 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59617 - "OPTIONS /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59617 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65261 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65157 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62999 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50995 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50051 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53605 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58461 - "OPTIONS /api/upload/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58461 - "POST /api/upload/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58461 - "OPTIONS /api/predict/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58461 - "POST /api/predict/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58461 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65408 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49261 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54772 - "GET /storage/uploads/51f0e1c0-d855-46e1-a422-62ce64ed4a25.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50638 - "GET /storage/outputs/51f0e1c0-d855-46e1-a422-62ce64ed4a25-overlay.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56625 - "GET /storage/outputs/51f0e1c0-d855-46e1-a422-62ce64ed4a25-annotated.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50607 - "GET /storage/outputs/51f0e1c0-d855-46e1-a422-62ce64ed4a25-mask-0.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56296 - "POST /api/upload/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56296 - "POST /api/predict/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56296 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54873 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54780 - "GET /storage/uploads/4913c62b-d630-4bd0-a020-6c4120c751c2.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49669 - "GET /storage/outputs/4913c62b-d630-4bd0-a020-6c4120c751c2-overlay.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64593 - "GET /storage/outputs/4913c62b-d630-4bd0-a020-6c4120c751c2-annotated.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55438 - "GET /storage/outputs/4913c62b-d630-4bd0-a020-6c4120c751c2-mask-0.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61451 - "OPTIONS /api/report/d6e93b66-26ba-480c-ae33-30e02e0c0382 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61451 - "GET /api/report/d6e93b66-26ba-480c-ae33-30e02e0c0382 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50920 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57623 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61242 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63317 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55663 - "GET /storage/uploads/4913c62b-d630-4bd0-a020-6c4120c751c2.png HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:53129 - "GET /storage/outputs/4913c62b-d630-4bd0-a020-6c4120c751c2-overlay.png HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:49669 - "GET /storage/outputs/4913c62b-d630-4bd0-a020-6c4120c751c2-annotated.png HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:58551 - "GET /storage/outputs/4913c62b-d630-4bd0-a020-6c4120c751c2-mask-0.png HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:60446 - "OPTIONS /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62018 - "OPTIONS /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62018 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60446 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55692 - "POST /api/upload/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55692 - "POST /api/predict/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52524 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49239 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64360 - "GET /storage/uploads/2ac6abd0-bc7b-4972-95e2-61b601b1ad36.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55843 - "GET /storage/outputs/2ac6abd0-bc7b-4972-95e2-61b601b1ad36-overlay.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58387 - "GET /storage/outputs/2ac6abd0-bc7b-4972-95e2-61b601b1ad36-annotated.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51559 - "GET /storage/outputs/2ac6abd0-bc7b-4972-95e2-61b601b1ad36-mask-0.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63070 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57289 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63800 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60557 - "OPTIONS /api/memory HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60557 - "DELETE /api/memory HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60557 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62339 - "OPTIONS /api/upload/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62339 - "POST /api/upload/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62339 - "OPTIONS /api/predict/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62339 - "POST /api/predict/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55607 - "GET /api/history HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49669 - "POST /api/upload/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49669 - "POST /api/predict/batch HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56264 - "GET /storage/uploads/a4e778c3-1c31-440e-8d27-3f32ee85949f.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50204 - "GET /storage/outputs/a4e778c3-1c31-440e-8d27-3f32ee85949f-annotated.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63087 - "GET /storage/outputs/a4e778c3-1c31-440e-8d27-3f32ee85949f-overlay.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52832 - "GET /storage/outputs/a4e778c3-1c31-440e-8d27-3f32ee85949f-mask-0.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59372 - "GET /storage/uploads/a4e778c3-1c31-440e-8d27-3f32ee85949f.png HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63210 - "GET /storage/outputs/a4e778c3-1c31-440e-8d27-3f32ee85949f-overlay.png HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:64719 - "GET /storage/outputs/a4e778c3-1c31-440e-8d27-3f32ee85949f-annotated.png HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61486 - "GET /storage/outputs/a4e778c3-1c31-440e-8d27-3f32ee85949f-mask-0.png HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63125 - "GET /api/history HTTP/1.1" 200 OK
