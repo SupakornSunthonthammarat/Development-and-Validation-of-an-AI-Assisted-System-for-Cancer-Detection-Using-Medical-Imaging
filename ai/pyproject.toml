@@ -1,0 +1,16 @@
+[project]
+name = "oncovision-ai"
+version = "0.1.0"
+description = "Placeholder AI inference interfaces for OncoVision AI."
+requires-python = ">=3.12"
+dependencies = [
+  "Pillow",
+  "numpy",
+  "opencv-python-headless",
+  "torch",
+  "monai",
+  "ultralytics"
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

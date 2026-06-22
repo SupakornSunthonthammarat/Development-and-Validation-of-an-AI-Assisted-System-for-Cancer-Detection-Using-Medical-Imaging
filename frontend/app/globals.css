@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 27% 98%;
+  --foreground: 210 16% 23%;
+  --card: 0 0% 100%;
+  --card-foreground: 210 16% 23%;
+  --primary: 204 100% 33%;
+  --primary-foreground: 0 0% 100%;
+  --muted: 210 25% 96%;
+  --muted-foreground: 210 12% 39%;
+  --border: 210 18% 88%;
+  --input: 210 18% 88%;
+  --ring: 204 100% 33%;
+}
+
+.dark {
+  --background: 210 24% 10%;
+  --foreground: 210 30% 96%;
+  --card: 210 20% 14%;
+  --card-foreground: 210 30% 96%;
+  --primary: 200 74% 60%;
+  --primary-foreground: 210 24% 10%;
+  --muted: 210 16% 18%;
+  --muted-foreground: 210 14% 74%;
+  --border: 210 15% 23%;
+  --input: 210 15% 23%;
+  --ring: 200 74% 60%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  min-height: 100vh;
+  font-family: var(--font-inter), sans-serif;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(14, 116, 144, 0.14);
+}
+
+.dark .glass {
+  background: rgba(15, 23, 42, 0.78);
+}
+
+.surface-grid {
+  background-image:
+    linear-gradient(rgba(0, 101, 169, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 101, 169, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.app-gradient {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(77, 182, 231, 0.12), transparent 26%),
+    radial-gradient(circle at 88% 12%, rgba(26, 124, 64, 0.08), transparent 24%),
+    linear-gradient(180deg, #ffffff 0%, #f6f8fa 100%);
+}
+
+.dark .app-gradient {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(77, 182, 231, 0.12), transparent 26%),
+    radial-gradient(circle at 88% 12%, rgba(26, 124, 64, 0.08), transparent 24%),
+    linear-gradient(180deg, #111a24 0%, #17212d 100%);
+}
+
+.animate-fade-up {
+  animation: fade-up 0.68s ease both;
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 2.8s ease-in-out infinite;
+}
+
+.animate-scan {
+  animation: scan 2.6s ease-in-out infinite;
+}
+
+.hover-lift {
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 55px rgba(14, 116, 144, 0.14);
+}
+
+.dark .hover-lift:hover {
+  box-shadow: 0 18px 55px rgba(8, 145, 178, 0.18);
+}
+
+.clinical-panel {
+  border: 1px solid rgba(0, 101, 169, 0.10);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(246, 248, 250, 0.94));
+  box-shadow: 0 20px 48px rgba(47, 58, 69, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.dark .clinical-panel {
+  border: 1px solid rgba(155, 215, 242, 0.08);
+  background:
+    linear-gradient(180deg, rgba(23, 33, 45, 0.95), rgba(17, 26, 36, 0.92));
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.32);
+}
+
+.clinical-chip {
+  border: 1px solid rgba(0, 101, 169, 0.12);
+  background: rgba(242, 248, 252, 0.92);
+  color: #0065a9;
+}
+
+.dark .clinical-chip {
+  border: 1px solid rgba(155, 215, 242, 0.12);
+  background: rgba(18, 39, 56, 0.88);
+  color: #9bd7f2;
+}
+
+.medical-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.medical-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.metric-ring {
+  background: conic-gradient(#0065a9 var(--progress), #dfeaf2 0);
+}
+
+.dark .metric-ring {
+  background: conic-gradient(#4db6e7 var(--progress), rgba(255, 255, 255, 0.12) 0);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-pulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes scan {
+  0%, 100% {
+    transform: translateY(-44%);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translateY(44%);
+    opacity: 0.85;
+  }
+}
