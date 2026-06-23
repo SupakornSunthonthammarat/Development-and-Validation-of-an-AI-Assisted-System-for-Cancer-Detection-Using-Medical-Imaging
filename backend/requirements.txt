@@ -12,9 +12,6 @@ python-multipart==0.0.20
 Pillow==11.0.0
 numpy==2.2.1
 opencv-python-headless==4.10.0.84
-torch==2.5.1
-monai==1.4.0
-ultralytics==8.3.55
 google-auth==2.37.0
 requests==2.32.3
 pytest==8.3.4
