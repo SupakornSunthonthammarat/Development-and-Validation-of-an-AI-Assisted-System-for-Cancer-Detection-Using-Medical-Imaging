@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: oncovision-backend
+    runtime: python
+    buildCommand: ./render-build.sh
+    startCommand: ./render-start.sh
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
