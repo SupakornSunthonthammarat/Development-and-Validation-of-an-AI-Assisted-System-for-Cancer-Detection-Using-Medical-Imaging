@@ -23,6 +23,7 @@ from app.schemas import (
     ChatResponse,
     GoogleAuthRequest,
     MemoryClearResponse,
+    MeResponse,
     PredictRequest,
     RegisterRequest,
     TokenResponse,
@@ -253,6 +254,16 @@ def chat(payload: ChatRequest, user: User = Depends(get_current_user), db: Sessi
     db.add(ChatHistory(user_id=user.id, role="assistant", content=reply))
     db.commit()
     return ChatResponse(reply=reply)
+
+
+@router.get("/me", response_model=MeResponse)
+def me(user: User = Depends(get_current_user)) -> MeResponse:
+    return MeResponse(
+        id=user.id,
+        name=user.name,
+        email=user.email,
+        is_admin=user.email.lower() in set(settings.admin_emails),
+    )
 
 
 @router.get("/admin/overview", response_model=AdminOverviewResponse)

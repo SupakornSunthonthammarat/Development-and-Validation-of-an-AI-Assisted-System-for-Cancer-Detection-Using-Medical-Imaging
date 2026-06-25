@@ -4,14 +4,16 @@ import { useEffect, useState } from "react";
 import { Activity, MessageSquare, ShieldCheck, Users } from "lucide-react";
 import { AppShell } from "@/components/layout/app-shell";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { api, type AdminOverview } from "@/lib/api";
+import { api, type AdminOverview, type Me } from "@/lib/api";
 
 export default function AdminPage() {
+  const [me, setMe] = useState<Me | null>(null);
   const [overview, setOverview] = useState<AdminOverview | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    api.me().then(setMe).catch(() => setMe(null));
     api
       .adminOverview()
       .then((data) => setOverview(data))
@@ -30,6 +32,12 @@ export default function AdminPage() {
         <p className="mt-1 max-w-2xl text-muted-foreground">
           Registered accounts and their activity. Only the emails listed in the backend `ADMIN_EMAILS` can view this page.
         </p>
+        {me ? (
+          <p className="mt-3 text-sm text-muted-foreground">
+            Signed in as <span className="font-semibold text-foreground">{me.email}</span>
+            {me.is_admin ? null : <span className="text-red-600"> — not an admin account</span>}
+          </p>
+        ) : null}
       </div>
 
       {loading ? (
@@ -42,9 +50,15 @@ export default function AdminPage() {
             </div>
             <h2 className="mt-4 text-lg font-semibold">Access denied</h2>
             <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-muted-foreground">
-              บัญชีนี้ไม่มีสิทธิ์ดูหน้า Admin หรือยังไม่ได้ตั้งค่า `ADMIN_EMAILS` ฝั่ง backend ให้ตรงกับอีเมลที่ล็อกอินอยู่
+              This account is not authorized to view the admin page. Sign in with an email listed in the backend
+              `ADMIN_EMAILS` setting.
             </p>
-            <p className="mt-3 text-xs text-muted-foreground">({error})</p>
+            {me ? (
+              <p className="mx-auto mt-3 max-w-md text-sm text-muted-foreground">
+                You are signed in as <span className="font-semibold text-foreground">{me.email}</span>. If this is not your
+                admin email, log out and sign in with the correct account.
+              </p>
+            ) : null}
           </CardContent>
         </Card>
       ) : overview ? (
@@ -86,7 +100,7 @@ export default function AdminPage() {
                   </tbody>
                 </table>
                 {overview.users.length === 0 ? (
-                  <p className="py-8 text-center text-muted-foreground">ยังไม่มีผู้ใช้สมัคร</p>
+                  <p className="py-8 text-center text-muted-foreground">No registered users yet.</p>
                 ) : null}
               </div>
             </CardContent>

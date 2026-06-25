@@ -91,6 +91,13 @@ class MemoryClearResponse(BaseModel):
     cleared_pending_uploads: int
 
 
+class MeResponse(BaseModel):
+    id: str
+    name: str
+    email: str
+    is_admin: bool
+
+
 class AdminUserRow(BaseModel):
     id: str
     name: str

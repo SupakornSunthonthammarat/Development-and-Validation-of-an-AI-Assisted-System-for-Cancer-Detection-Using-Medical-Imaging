@@ -53,6 +53,13 @@ export type MemoryClearSummary = {
   cleared_pending_uploads: number;
 };
 
+export type Me = {
+  id: string;
+  name: string;
+  email: string;
+  is_admin: boolean;
+};
+
 export type AdminUserRow = {
   id: string;
   name: string;
@@ -127,5 +134,6 @@ export const api = {
       body: JSON.stringify({ message, history, analysis_id: analysisId })
     }),
   clearMemory: () => request<MemoryClearSummary>("/api/memory", { method: "DELETE" }),
+  me: () => request<Me>("/api/me"),
   adminOverview: () => request<AdminOverview>("/api/admin/overview")
 };
