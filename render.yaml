@@ -2,9 +2,34 @@ services:
   - type: web
     name: oncovision-backend
     runtime: python
+    plan: free                      # เปลี่ยนเป็น starter ($7/เดือน) ถ้าไม่อยากให้ service หลับ
     buildCommand: ./render-build.sh
     startCommand: ./render-start.sh
     healthCheckPath: /health
+    disk:
+      name: oncovision-storage
+      mountPath: /var/data          # ดิสก์ถาวร — รูปอัปโหลด/overlay/report จะไม่หายเวลา redeploy
+      sizeGB: 1
     envVars:
       - key: PYTHON_VERSION
         value: 3.12.7
+      - key: STORAGE_ROOT
+        value: /var/data            # ให้ LocalStorage เขียนลงดิสก์ถาวร (ไม่ใช่ ephemeral)
+      - key: JWT_SECRET
+        generateValue: true         # Render สุ่ม secret ให้เอง
+      - key: DATABASE_URL
+        fromDatabase:
+          name: oncovision-db
+          property: connectionString
+      - key: CORS_ORIGINS
+        value: https://development-and-validation-of-an-ai.vercel.app
+      - key: GOOGLE_CLIENT_ID
+        sync: false                 # ใส่เองในหน้า Render dashboard (ถ้าเปิดใช้ Google login)
+      - key: OPENAI_API_KEY
+        sync: false                 # ใส่เองถ้าจะเปิด AI assistant
+
+databases:
+  - name: oncovision-db
+    plan: free
+    databaseName: oncovision
+    user: oncovision
