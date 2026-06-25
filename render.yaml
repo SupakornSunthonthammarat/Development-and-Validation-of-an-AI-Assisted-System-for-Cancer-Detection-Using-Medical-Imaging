@@ -2,19 +2,18 @@ services:
   - type: web
     name: oncovision-backend
     runtime: python
-    plan: free                      # เปลี่ยนเป็น starter ($7/เดือน) ถ้าไม่อยากให้ service หลับ
+    plan: free                      # free tier ไม่รองรับดิสก์ถาวร -> storage เป็น ephemeral
     buildCommand: ./render-build.sh
     startCommand: ./render-start.sh
     healthCheckPath: /health
-    disk:
-      name: oncovision-storage
-      mountPath: /var/data          # ดิสก์ถาวร — รูปอัปโหลด/overlay/report จะไม่หายเวลา redeploy
-      sizeGB: 1
+    # NOTE: free tier ไม่รองรับ persistent disk
+    # ถ้าต้องการให้รูป/report ไม่หายเวลา restart -> เปลี่ยน plan เป็น starter
+    # แล้วเพิ่ม block disk: { name, mountPath: /var/data, sizeGB: 1 } กลับมา + ตั้ง STORAGE_ROOT=/var/data
     envVars:
       - key: PYTHON_VERSION
         value: 3.12.7
       - key: STORAGE_ROOT
-        value: /var/data            # ให้ LocalStorage เขียนลงดิสก์ถาวร (ไม่ใช่ ephemeral)
+        value: /tmp/oncovision-storage   # โฟลเดอร์ที่เขียนได้บน free tier (ephemeral)
       - key: JWT_SECRET
         generateValue: true         # Render สุ่ม secret ให้เอง
       - key: DATABASE_URL
