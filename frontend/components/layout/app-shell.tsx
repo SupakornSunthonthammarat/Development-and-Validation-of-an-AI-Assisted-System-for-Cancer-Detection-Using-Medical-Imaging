@@ -1,9 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Activity, BarChart3, ChevronRight, LogOut, MessageSquare, SearchCheck, Settings, ShieldCheck, UploadCloud } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { api } from "@/lib/api";
 import { useAppStore } from "@/store/use-app-store";
 
 const navItems = [
@@ -17,6 +19,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const resetAiMemory = useAppStore((state) => state.resetAiMemory);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    api
+      .me()
+      .then((me) => setIsAdmin(me.is_admin))
+      .catch(() => setIsAdmin(false));
+  }, []);
 
   function handleLogout() {
     if (typeof window !== "undefined") {
@@ -68,19 +78,21 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               </Link>
             );
           })}
-          <Link
-            href="/admin"
-            className={cn(
-              "flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition",
-              pathname.startsWith("/admin")
-                ? "bg-[#edf6fb] text-[#0065A9] shadow-sm dark:bg-slate-800 dark:text-[#9bd7f2]"
-                : "text-muted-foreground hover:bg-white/70 dark:hover:bg-slate-900/70"
-            )}
-          >
-            <ShieldCheck size={18} />
-            <span className="flex-1">Admin</span>
-            {pathname.startsWith("/admin") ? <ChevronRight size={15} /> : null}
-          </Link>
+          {isAdmin ? (
+            <Link
+              href="/admin"
+              className={cn(
+                "flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition",
+                pathname.startsWith("/admin")
+                  ? "bg-[#edf6fb] text-[#0065A9] shadow-sm dark:bg-slate-800 dark:text-[#9bd7f2]"
+                  : "text-muted-foreground hover:bg-white/70 dark:hover:bg-slate-900/70"
+              )}
+            >
+              <ShieldCheck size={18} />
+              <span className="flex-1">Admin</span>
+              {pathname.startsWith("/admin") ? <ChevronRight size={15} /> : null}
+            </Link>
+          ) : null}
         </nav>
         <button
           type="button"
