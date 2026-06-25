@@ -53,6 +53,22 @@ export type MemoryClearSummary = {
   cleared_pending_uploads: number;
 };
 
+export type AdminUserRow = {
+  id: string;
+  name: string;
+  email: string;
+  created_at: string;
+  analysis_count: number;
+  last_active: string | null;
+};
+
+export type AdminOverview = {
+  total_users: number;
+  total_analyses: number;
+  total_chat_messages: number;
+  users: AdminUserRow[];
+};
+
 async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   const token = typeof window !== "undefined" ? localStorage.getItem("oncovision_token") : null;
   const headers = new Headers(options.headers);
@@ -110,5 +126,6 @@ export const api = {
       method: "POST",
       body: JSON.stringify({ message, history, analysis_id: analysisId })
     }),
-  clearMemory: () => request<MemoryClearSummary>("/api/memory", { method: "DELETE" })
+  clearMemory: () => request<MemoryClearSummary>("/api/memory", { method: "DELETE" }),
+  adminOverview: () => request<AdminOverview>("/api/admin/overview")
 };

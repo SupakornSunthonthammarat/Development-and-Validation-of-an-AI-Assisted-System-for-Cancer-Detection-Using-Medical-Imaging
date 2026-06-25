@@ -4,15 +4,17 @@ from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from fastapi.responses import PlainTextResponse
 from google.auth.transport import requests as google_requests
 from google.oauth2 import id_token
-from sqlalchemy import select
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from app.api.deps import get_current_user
+from app.api.deps import get_admin_user, get_current_user
 from app.core.config import settings
 from app.core.security import create_access_token, hash_password, verify_password
 from app.db.session import get_db
 from app.models import Analysis, ChatHistory, Report, User
 from app.schemas import (
+    AdminOverviewResponse,
+    AdminUserRow,
     AnalysisResponse,
     AuthRequest,
     BatchPredictRequest,
@@ -251,6 +253,43 @@ def chat(payload: ChatRequest, user: User = Depends(get_current_user), db: Sessi
     db.add(ChatHistory(user_id=user.id, role="assistant", content=reply))
     db.commit()
     return ChatResponse(reply=reply)
+
+
+@router.get("/admin/overview", response_model=AdminOverviewResponse)
+def admin_overview(
+    admin: User = Depends(get_admin_user),
+    db: Session = Depends(get_db),
+) -> AdminOverviewResponse:
+    total_users = db.scalar(select(func.count()).select_from(User)) or 0
+    total_analyses = db.scalar(select(func.count()).select_from(Analysis)) or 0
+    total_chat_messages = db.scalar(select(func.count()).select_from(ChatHistory)) or 0
+
+    analysis_counts = dict(
+        db.execute(select(Analysis.user_id, func.count(Analysis.id)).group_by(Analysis.user_id)).all()
+    )
+    last_active = dict(
+        db.execute(select(Analysis.user_id, func.max(Analysis.created_at)).group_by(Analysis.user_id)).all()
+    )
+
+    users = db.scalars(select(User).order_by(User.created_at.desc())).all()
+    rows = [
+        AdminUserRow(
+            id=user.id,
+            name=user.name,
+            email=user.email,
+            created_at=user.created_at,
+            analysis_count=int(analysis_counts.get(user.id, 0)),
+            last_active=last_active.get(user.id),
+        )
+        for user in users
+    ]
+
+    return AdminOverviewResponse(
+        total_users=total_users,
+        total_analyses=total_analyses,
+        total_chat_messages=total_chat_messages,
+        users=rows,
+    )
 
 
 @router.delete("/memory", response_model=MemoryClearResponse)

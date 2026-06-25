@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     access_token_expire_minutes: int = 1440
     storage_root: str = "storage"
     cors_origins: Annotated[list[str], NoDecode] = ["http://localhost:3000"]
+    admin_emails: Annotated[list[str], NoDecode] = []
     google_client_id: str | None = None
     openai_api_key: str | None = None
     openai_model: str = "gpt-5.5"
@@ -33,6 +34,19 @@ class Settings(BaseSettings):
                 return [str(origin).strip() for origin in parsed if str(origin).strip()]
             return [origin.strip() for origin in value.split(",") if origin.strip()]
         return value
+
+    @field_validator("admin_emails", mode="before")
+    @classmethod
+    def parse_admin_emails(cls, value: str | list[str]) -> list[str]:
+        if isinstance(value, str):
+            value = value.strip()
+            if value.startswith("["):
+                import json
+
+                parsed = json.loads(value)
+                return [str(email).strip().lower() for email in parsed if str(email).strip()]
+            return [email.strip().lower() for email in value.split(",") if email.strip()]
+        return [str(email).strip().lower() for email in value if str(email).strip()]
 
 
 @lru_cache

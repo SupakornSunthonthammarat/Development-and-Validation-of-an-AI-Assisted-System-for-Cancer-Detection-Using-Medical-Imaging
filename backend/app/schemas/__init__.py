@@ -1,4 +1,6 @@
 from app.schemas.api import (
+    AdminOverviewResponse,
+    AdminUserRow,
     AnalysisResponse,
     AuthRequest,
     BatchPredictRequest,
@@ -18,6 +20,8 @@ from app.schemas.api import (
 )
 
 __all__ = [
+    "AdminOverviewResponse",
+    "AdminUserRow",
     "AnalysisResponse",
     "AuthRequest",
     "BatchPredictRequest",

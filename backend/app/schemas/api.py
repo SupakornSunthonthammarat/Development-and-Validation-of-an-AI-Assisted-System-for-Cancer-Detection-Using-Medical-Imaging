@@ -91,6 +91,22 @@ class MemoryClearResponse(BaseModel):
     cleared_pending_uploads: int
 
 
+class AdminUserRow(BaseModel):
+    id: str
+    name: str
+    email: str
+    created_at: datetime
+    analysis_count: int
+    last_active: datetime | None = None
+
+
+class AdminOverviewResponse(BaseModel):
+    total_users: int
+    total_analyses: int
+    total_chat_messages: int
+    users: list[AdminUserRow]
+
+
 class FindingExplanationResponse(BaseModel):
     finding: str
     confidence_percentage: int

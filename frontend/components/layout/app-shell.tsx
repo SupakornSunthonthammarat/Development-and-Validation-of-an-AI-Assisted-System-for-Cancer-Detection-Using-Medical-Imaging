@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Activity, BarChart3, ChevronRight, LogOut, MessageSquare, SearchCheck, Settings, UploadCloud } from "lucide-react";
+import { Activity, BarChart3, ChevronRight, LogOut, MessageSquare, SearchCheck, Settings, ShieldCheck, UploadCloud } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAppStore } from "@/store/use-app-store";
 
@@ -68,6 +68,19 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               </Link>
             );
           })}
+          <Link
+            href="/admin"
+            className={cn(
+              "flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-medium transition",
+              pathname.startsWith("/admin")
+                ? "bg-[#edf6fb] text-[#0065A9] shadow-sm dark:bg-slate-800 dark:text-[#9bd7f2]"
+                : "text-muted-foreground hover:bg-white/70 dark:hover:bg-slate-900/70"
+            )}
+          >
+            <ShieldCheck size={18} />
+            <span className="flex-1">Admin</span>
+            {pathname.startsWith("/admin") ? <ChevronRight size={15} /> : null}
+          </Link>
         </nav>
         <button
           type="button"
